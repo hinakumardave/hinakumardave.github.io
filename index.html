@@ -682,6 +682,31 @@
                 // Scroll to top
                 window.scrollTo(0, 0);
             }
+            
+            // Fix buttons to link to respective pages
+            const serviceButtons = document.querySelectorAll('[data-page="services"]');
+            serviceButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showPage('services');
+                    
+                    // Update active link
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    document.querySelector('[data-page="services"]').classList.add('active');
+                });
+            });
+            
+            const contactButtons = document.querySelectorAll('[data-page="contact"]');
+            contactButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showPage('contact');
+                    
+                    // Update active link
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    document.querySelector('[data-page="contact"]').classList.add('active');
+                });
+            });
         });
     </script>
 </body>
